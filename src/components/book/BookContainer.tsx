@@ -424,8 +424,8 @@ export default function BookContainer({
             <h2 className="font-serif text-2xl text-stone-900 font-semibold mb-2 animate-slide-up" style={{ animationDelay: "0.3s" }}>
               {settings.author}
             </h2>
-            <p className="text-xs text-stone-600 leading-relaxed max-w-sm font-serif px-2 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-              Chair of Astrophysics at the Quantum Cosmology Institute. Professor Stella Vance has spent over two decades researching dark energy anomalies, wormhole metrics, and stellar core dynamics. This Almanac compiles her primary research logs and observational lectures.
+            <p className="text-xs text-stone-600 leading-relaxed max-w-sm font-serif px-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+              {settings.description}
             </p>
           </div>
 
