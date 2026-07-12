@@ -37,3 +37,6 @@ next-env.d.ts
 
 # firebase local cache
 .firebase/
+
+# deployment variables backup
+import.env
