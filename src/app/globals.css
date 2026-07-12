@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050508;
+  --foreground: #eae9fc;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Premium Paper Texture Overlay */
+.bg-paper-texture {
+  background-color: #faf7ee !important;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(240, 230, 210, 0.22) 0%, transparent 60%),
+    radial-gradient(circle at 75% 75%, rgba(225, 215, 195, 0.3) 0%, transparent 70%),
+    linear-gradient(to right, rgba(0,0,0,0.015) 0%, transparent 8%, transparent 92%, rgba(0,0,0,0.015) 100%) !important;
+}
+
+/* 3D Page flip utility classes */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Custom Scrollbar for Book Pages (Blending with paper texture) */
+.scrollbar-paper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar-paper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-paper::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.15); /* Light glowing violet */
+  border-radius: 9999px;
+}
+
+.scrollbar-paper::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.35);
+}
+
+/* Fade-in animation class */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* TipTap Editor focused style */
+.ProseMirror:focus {
+  outline: none;
+}
+
+/* Accent overrides */
+.text-rose-450 {
+  color: #fb7185;
+}
+.text-emerald-450 {
+  color: #34d399;
+}
+.bg-stone-850 {
+  background-color: #211f1d;
+}
+.border-stone-250 {
+  border-color: #e5e4de;
+}
+.border-stone-850 {
+  border-color: #262422;
+}
+.text-stone-850 {
+  color: #262422 !important;
+}
+.text-stone-950 {
+  color: #0c0a09 !important;
+}
+.bg-indigo-650 {
+  background-color: #4338ca;
+}
+.bg-indigo-850 {
+  background-color: #312e81;
+}
+.hover\:bg-indigo-550:hover {
+  background-color: #4f46e5;
+}
+.hover\:bg-stone-850:hover {
+  background-color: #211f1d;
+}
+
+/* Background grid style */
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(120% 90% at 50% 18%, #000 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 18%, #000 40%, transparent 85%);
+  opacity: 0.18;
+}
+
+/* Sparkle lens-flare animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle-star {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.9);
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.sparkle-star::before,
+.sparkle-star::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle-star::before {
+  width: var(--flare, 46px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+}
+
+.sparkle-star::after {
+  width: 1px;
+  height: var(--flare, 46px);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+}
+
+/* Premium Book Double Column Flow Layout */
+.book-page-flow, .book-page-flow-editor {
+  font-family: "Lora", "Crimson Pro", Georgia, serif;
+  column-count: 2;
+  column-gap: 8rem; /* Wide center margin for book spine */
+  column-fill: auto;
+  height: 480px; /* Clean page height limit */
+  max-width: 100%;
+}
+
+/* Responsive: single column on mobile/tablet */
+@media (max-width: 1024px) {
+  .book-page-flow, .book-page-flow-editor {
+    column-count: 1;
+    column-gap: 0;
+    height: auto;
+  }
+}
+
+/* Drop-Cap styling on first paragraph first letter */
+.book-page-flow > p:first-of-type::first-letter,
+.book-page-flow-editor p:first-of-type::first-letter {
+  font-size: 3.8rem;
+  font-weight: 700;
+  float: left;
+  line-height: 0.8;
+  margin-top: 0.15em;
+  margin-right: 0.12em;
+  color: var(--accent-color, #8b5cf6);
+  font-family: "Lora", "Crimson Pro", Georgia, serif;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* Typography spacing details */
+.book-page-flow p, .book-page-flow-editor p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 1.125rem;
+  color: #292524; /* Slate-800 */
+}
+
+.book-page-flow h1, .book-page-flow-editor h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  column-span: all; /* Title spans both columns */
+  border-bottom: 2px solid var(--accent-border, rgba(139, 92, 246, 0.2));
+  padding-bottom: 0.5rem;
+  color: #1c1917;
+}
+
+.book-page-flow h2, .book-page-flow-editor h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #1c1917;
+}
+
+.book-page-flow blockquote, .book-page-flow-editor blockquote {
+  border-left: 4px solid var(--accent-color, #8b5cf6);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: #57534e;
+  margin: 1.5rem 0;
+  column-span: all;
+  background: var(--accent-bg, rgba(139, 92, 246, 0.03));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.book-page-flow img, .book-page-flow-editor img {
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 1rem auto;
+  display: block;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.book-page-flow ul, .book-page-flow ol,
+.book-page-flow-editor ul, .book-page-flow-editor ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.book-page-flow li, .book-page-flow-editor li {
+  margin-bottom: 0.25rem;
+}
+
+/* Staggered page content entry animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-content-container p,
+.book-content-container h1,
+.book-content-container h2,
+.book-content-container blockquote,
+.book-content-container img,
+.book-content-container ul,
+.book-content-container ol {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered children animation delays */
+.book-content-container *:nth-child(1) { animation-delay: 0.05s; }
+.book-content-container *:nth-child(2) { animation-delay: 0.12s; }
+.book-content-container *:nth-child(3) { animation-delay: 0.19s; }
+.book-content-container *:nth-child(4) { animation-delay: 0.26s; }
+.book-content-container *:nth-child(5) { animation-delay: 0.33s; }
+.book-content-container *:nth-child(6) { animation-delay: 0.4s; }
+.book-content-container *:nth-child(7) { animation-delay: 0.47s; }
+.book-content-container *:nth-child(8) { animation-delay: 0.54s; }
+.book-content-container *:nth-child(9) { animation-delay: 0.61s; }
+.book-content-container *:nth-child(10) { animation-delay: 0.68s; }
+
+/* 1. Poetry Block Styles */
+.book-page-flow pre, .book-page-flow-editor pre {
+  background: rgba(139, 92, 246, 0.01) !important;
+  border: none !important;
+  font-family: "Cormorant Garamond", "Lora", serif !important;
+  font-size: 1.15rem !important;
+  font-style: italic;
+  line-height: 1.6;
+  padding: 1.25rem 2rem !important;
+  margin: 1.5rem 0;
+  text-align: center !important;
+  white-space: pre-wrap !important;
+  color: #6a4f3b !important;
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 4px;
+}
+
+/* 2. Nested Lists */
+.book-page-flow ul ul, .book-page-flow-editor ul ul {
+  list-style-type: circle;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1.25rem;
+}
+.book-page-flow ul ul ul, .book-page-flow-editor ul ul ul {
+  list-style-type: square;
+  padding-left: 1.25rem;
+}
+
+/* 3. Decorative Dividers (Tiptap Horizontal Rules) */
+.book-page-flow hr, .book-page-flow-editor hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-color, #cbd5e1), transparent);
+  margin: 2rem 0;
+  position: relative;
+  overflow: visible;
+}
+.book-page-flow hr::after, .book-page-flow-editor hr::after {
+  content: '❖';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #faf7ee;
+  padding: 0 0.5rem;
+  color: var(--accent-color, #8b5cf6);
+  font-size: 0.75rem;
+}
+
+/* 4. Table Formatting */
+.book-page-flow table, .book-page-flow-editor table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.book-page-flow th, .book-page-flow-editor th {
+  border-bottom: 2px solid var(--accent-border, rgba(139, 92, 246, 0.2));
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  text-align: left;
+  color: #1c1917;
+}
+.book-page-flow td, .book-page-flow-editor td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0.75rem;
+  color: #44403c;
+}
+.book-page-flow tr:hover, .book-page-flow-editor tr:hover {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+/* 5. Custom Block Callouts */
+.book-page-flow .callout, .book-page-flow-editor .callout {
+  border-left: 4px solid var(--accent-color, #38bdf8);
+  background-color: var(--accent-bg, rgba(56, 189, 248, 0.05));
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 1rem;
+  color: #4b5563;
+}

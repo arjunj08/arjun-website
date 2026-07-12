@@ -1,0 +1,181 @@
+{
+  "settings": {
+    "title": "The Cosmic Almanac",
+    "author": "Prof. Stella Vance",
+    "description": "An interactive, cinematic exploration of astrophysics, dark matter, and deep space mechanics.",
+    "coverTitle": "COSMIC PHYSICS",
+    "accentColor": "#8b5cf6"
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "chapterNumber": 1,
+      "title": "The Art of Slow Living",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"heading\",\"attrs\":{\"level\":1},\"content\":[{\"type\":\"text\",\"text\":\"The Art of Slow Living\"}]},{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"In a world driven by speed and constant connectivity, the concept of slow living invites us to step back and reclaim our time. It is a mindful approach to daily life that emphasizes quality over quantity, presence over productivity, and deep appreciation for the micro-moments that define our existence.\"}]},{\"type\":\"blockquote\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"Nature does not hurry, yet everything is accomplished. — Lao Tzu\"}]}]},{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"Slow living isn't about doing everything at a snail's pace. It is about doing things at the right speed—aligning our daily rituals with our internal compass, enjoying the aroma of morning coffee, and walking beneath the open skies.\"}]}]}",
+      "published": true,
+      "views": 41,
+      "section": "lifestyle",
+      "order": 1
+    },
+    {
+      "id": "page-2",
+      "chapterNumber": 2,
+      "title": "Gran Turismo Dynamics",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"heading\",\"attrs\":{\"level\":1},\"content\":[{\"type\":\"text\",\"text\":\"Gran Turismo Dynamics\"}]},{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"Supercars are not merely machines; they are works of kinetic art. The engineering behind modern Gran Turismo cars balances thermodynamic power with advanced active aerodynamics, generating high downforce to stabilize speeds at extreme corners.\"}]},{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"From carbon-fiber monocoque chassis to hybrid electric powertrains, the convergence of software and physics pushes the boundary of traction control, tire friction coefficient, and downforce distribution.\"}]}]}",
+      "published": true,
+      "views": 18,
+      "section": "cars",
+      "order": 2
+    },
+    {
+      "id": "page-3",
+      "chapterNumber": 3,
+      "title": "The Dark Ocean of Space",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"heading\",\"attrs\":{\"level\":1},\"content\":[{\"type\":\"text\",\"text\":\"The Dark Ocean of Space\"}]},{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"For eons, humanity looked at the stars and wondered. What lies within the vast cosmic ocean? Today, we know that the universe is not empty space; it is a dynamic canvas of dark matter, gravitational waves, and warping space-time.\"}]},{\"type\":\"blockquote\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself. — Carl Sagan\"}]}]},{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"As you turn the pages of this book, you will travel from the edge of stellar event horizons to the microscopic vibrations of quantum string fields. Welcome to the voyage.\"}]}]}",
+      "published": true,
+      "views": 18,
+      "section": "writing",
+      "order": 3
+    },
+    {
+      "id": "page-1783696198661",
+      "chapterNumber": 4,
+      "title": "New Lifestyle Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 4,
+      "published": false,
+      "views": 0,
+      "section": "lifestyle",
+      "createdAt": "2026-07-10T15:09:58.661Z",
+      "updatedAt": "2026-07-10T15:09:58.661Z"
+    },
+    {
+      "id": "page-1783748709856",
+      "chapterNumber": 5,
+      "title": "New Lifestyle Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 5,
+      "published": false,
+      "views": 3,
+      "section": "lifestyle",
+      "createdAt": "2026-07-11T05:45:09.856Z",
+      "updatedAt": "2026-07-11T05:45:09.856Z"
+    },
+    {
+      "id": "page-1783748711586",
+      "chapterNumber": 6,
+      "title": "New Lifestyle Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 6,
+      "published": false,
+      "views": 0,
+      "section": "lifestyle",
+      "createdAt": "2026-07-11T05:45:11.586Z",
+      "updatedAt": "2026-07-11T05:45:11.586Z"
+    },
+    {
+      "id": "page-1783794297969",
+      "chapterNumber": 7,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 7,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:24:57.969Z",
+      "updatedAt": "2026-07-11T18:24:57.969Z"
+    },
+    {
+      "id": "page-1783794300701",
+      "chapterNumber": 8,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 8,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:25:00.701Z",
+      "updatedAt": "2026-07-11T18:25:00.701Z"
+    },
+    {
+      "id": "page-1783794301352",
+      "chapterNumber": 9,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 9,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:25:01.352Z",
+      "updatedAt": "2026-07-11T18:25:01.352Z"
+    },
+    {
+      "id": "page-1783794301955",
+      "chapterNumber": 10,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 10,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:25:01.955Z",
+      "updatedAt": "2026-07-11T18:25:01.955Z"
+    },
+    {
+      "id": "page-1783794479074",
+      "chapterNumber": 11,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 11,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:27:59.074Z",
+      "updatedAt": "2026-07-11T18:27:59.074Z"
+    },
+    {
+      "id": "page-1783794479142",
+      "chapterNumber": 12,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 12,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:27:59.141Z",
+      "updatedAt": "2026-07-11T18:27:59.141Z"
+    },
+    {
+      "id": "page-1783794479156",
+      "chapterNumber": 13,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 13,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:27:59.156Z",
+      "updatedAt": "2026-07-11T18:27:59.156Z"
+    },
+    {
+      "id": "page-1783794479172",
+      "chapterNumber": 14,
+      "title": "New Writing Article",
+      "content": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"This article is waiting to be written...\"}]}]}",
+      "order": 14,
+      "published": false,
+      "featured": false,
+      "views": 0,
+      "section": "writing",
+      "createdAt": "2026-07-11T18:27:59.172Z",
+      "updatedAt": "2026-07-11T18:27:59.172Z"
+    }
+  ]
+}
