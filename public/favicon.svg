@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C5CFF" />
+      <stop offset="100%" stop-color="#22D3EE" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="20" fill="#11131C" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <text x="50%" y="58%" font-family="Space Grotesk, sans-serif" font-weight="bold" font-size="42" fill="url(#grad)" text-anchor="middle" dominant-baseline="middle">AJ</text>
+</svg>

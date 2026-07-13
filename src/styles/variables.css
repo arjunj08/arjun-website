@@ -1,0 +1,39 @@
+:root {
+  --background: #060810;
+  --card: #11131C;
+  --primary: #7C5CFF;
+  --secondary: #22D3EE;
+  --success: #22C55E;
+  --text-muted: #C7C9D3;
+}
+
+/* Premium radial backdrop and noise grain styles */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.025;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.glass-card {
+  backdrop-filter: blur(16px) saturate(120%);
+  background-color: rgba(17, 19, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-outline-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+}
+
+.text-gradient-purple-cyan {
+  background: linear-gradient(135deg, #7C5CFF 0%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
