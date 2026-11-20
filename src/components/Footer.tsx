@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full bg-[#060810] border-t border-borderMuted py-10 px-6 md:px-12 lg:px-24">
+    <footer className="w-full bg-[#08090C] border-t border-borderMuted py-10 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         
         {/* Left: signature */}

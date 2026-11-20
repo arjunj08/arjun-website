@@ -19,6 +19,40 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "veixon-ai-os",
+    title: "VEIXON AI OS",
+    subtitle: "Enterprise Agentic Runtime",
+    description: "Autonomous multi-agent orchestration runtime with low-latency tool dispatch, persistent memory, and RAG vector indexing.",
+    longDescription: "VEIXON AI OS is an enterprise-grade agent orchestration framework engineered at Veixon. It provisions specialized autonomous agents with sandboxed code execution, semantic memory indexing, and dynamic tool chaining. Built to deliver sub-50ms dispatch latency across hybrid cloud and local model deployments.",
+    tech: ["Python", "TypeScript", "FastAPI", "Qdrant", "LangGraph", "Docker"],
+    status: "In Development",
+    links: {
+      github: "https://github.com/arjunj08/veixon-cofounders",
+    },
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+    media: {
+      type: "image",
+      src: "/images/projects/veixon-ai-os.webp"
+    }
+  },
+  {
+    id: "kaalbench",
+    title: "KaalBench",
+    subtitle: "Temporal LLM Benchmark",
+    description: "Benchmarking framework evaluating long-context temporal comprehension, causal reasoning, and latency in frontier language models.",
+    longDescription: "KaalBench is an automated evaluation suite that stress-tests LLM context windows against temporal drift, multi-step counterfactual questions, and long-horizon causal chains. Includes automated dataset generation, synthetic perturbation tests, and latency profiling.",
+    tech: ["PyTorch", "Python", "HuggingFace", "FastAPI", "PostgreSQL"],
+    status: "Research",
+    links: {
+      github: "https://github.com/arjunj08/gridpulse"
+    },
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
+    media: {
+      type: "image",
+      src: "/images/projects/kaalbench.webp"
+    }
+  },
+  {
     id: "selfcall",
     title: "SelfCall / Self OS",
     subtitle: "Flutter AI Companion",
@@ -44,8 +78,7 @@ export const projects: Project[] = [
     tech: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
     status: "Live",
     links: {
-      github: "https://github.com/arjunj08/veixon-cofounders",
-      live: "https://dayzero.veixon.com",
+      github: "https://github.com/arjunj08/veixon-cofounders"
     },
     image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800&auto=format&fit=crop",
     media: {
@@ -58,12 +91,11 @@ export const projects: Project[] = [
     title: "SkillBridge",
     subtitle: "AI Placement Prep",
     description: "AI-driven mock interview simulator and prep platform specifically tailored for competitive CS students in India.",
-    longDescription: "SkillBridge helps Indian Computer Science students clear technical rounds. It offers company-tagged algorithmic problems, a generative AI mock interview simulator that critiques voice answers, and a highly polished, interactive Three.js homepage showcasing candidate performance metrics.",
+    longDescription: "SkillBridge helps Indian Computer Science students clear technical rounds. It offers company-tagged algorithmic problems, a generative AI mock interview simulator that critiques voice answers, and a highly polished interactive interface showcasing candidate performance metrics.",
     tech: ["Next.js", "Three.js", "FastAPI", "PostgreSQL", "WebRTC"],
     status: "Live",
     links: {
-      github: "https://github.com/arjunj08/skill-bridge",
-      live: "https://skillbridge.edu"
+      github: "https://github.com/arjunj08/skill-bridge"
     },
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
     media: {
@@ -86,40 +118,6 @@ export const projects: Project[] = [
     media: {
       type: "image",
       src: "/images/projects/gridpulse.webp"
-    }
-  },
-  {
-    id: "eventsync",
-    title: "AUISC EventSync",
-    subtitle: "Club Event Coordinator",
-    description: "Multi-platform event coordinator and ticketing dashboard built for the Anurag University Information Security Club.",
-    longDescription: "EventSync coordinates all events, workshops, hackathons, and credentials for the AUISC club. Features QR-code scanning for attendance tracking, real-time ticket sales tracking, and custom role assignments. Scaled across a React-based admin panel and a React Native mobile application for student check-ins.",
-    tech: ["React", "React Native", "Firebase", "Node.js", "Express"],
-    status: "Live",
-    links: {
-      github: "https://github.com/arjunj08/ausic-eventsync"
-    },
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop",
-    media: {
-      type: "image",
-      src: "/images/projects/eventsync.webp"
-    }
-  },
-  {
-    id: "edusphere",
-    title: "EduSphere AI",
-    subtitle: "Predictive Student Success",
-    description: "Machine learning platform built for the 2026 Cintana Alliance AI Challenge, identifying students at risk of drop-out.",
-    longDescription: "EduSphere AI utilizes longitudinal academic databases to identify early indicators of academic risk or discontinuation. Incorporates predictive classification models, explanatory AI (SHAP value analyses), and personalized academic remediation pathway recommendations. Honored at the Cintana Alliance Challenge.",
-    tech: ["React", "Flask", "Scikit-Learn", "SHAP", "TailwindCSS"],
-    status: "Competition",
-    links: {
-      github: "https://github.com/arjunj08/edusphere"
-    },
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    media: {
-      type: "image",
-      src: "/images/projects/edusphere.webp"
     }
   }
 ];

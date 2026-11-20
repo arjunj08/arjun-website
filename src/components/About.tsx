@@ -57,14 +57,14 @@ export const About: React.FC = () => {
   return (
     <section 
       id="about" 
-      className="relative min-h-screen py-24 px-6 md:px-12 lg:px-24 flex items-center justify-center border-b border-borderMuted bg-[#060810]"
+      className="relative min-h-screen py-24 px-6 md:px-12 lg:px-24 flex items-center justify-center border-b border-borderMuted bg-[#08090C]"
     >
       {/* Background soft ambient light */}
       <div className="absolute right-0 bottom-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-7xl relative z-10">
         <SectionTitle 
-          number="01" 
+          number="02" 
           title="A Little About Me" 
           subtitle="Connecting startup product development, dynamic design interfaces, and competitive programming."
         />
@@ -94,7 +94,7 @@ export const About: React.FC = () => {
               }}
             >
               {/* Inner Casual Selfie image */}
-              <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden bg-[#060810]">
+              <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden bg-[#08090C]">
                 <img 
                   src="/images/arjun-casual-circle.webp" 
                   alt="Arjun in a casual setting"

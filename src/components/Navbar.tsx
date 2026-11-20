@@ -14,11 +14,9 @@ interface NavbarProps {
 
 const navLinks: NavLink[] = [
   { label: "Home", id: "home" },
-  { label: "About", id: "about" },
-  { label: "What I Do", id: "what-i-do" },
-  { label: "Timeline", id: "timeline" },
   { label: "Projects", id: "projects" },
-  { label: "Tech", id: "tech" },
+  { label: "About", id: "about" },
+  { label: "Experience", id: "timeline" },
   { label: "Stats", id: "stats" },
   { label: "Contact", id: "contact" }
 ];
@@ -126,28 +124,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
       />
 
       {/* Main Navbar Panel */}
-      <div className="w-full flex justify-between items-center px-4 sm:px-8 md:px-12 py-4 bg-[#060810]/75 backdrop-blur-md border-b border-white/[0.06]">
-        {/* Left: Brand Monogram + Live Status */}
+      <div className="w-full flex justify-between items-center px-4 sm:px-8 md:px-12 py-4 bg-[#08090C]/80 backdrop-blur-md border-b border-white/[0.06]">
+        {/* Left: Brand Monogram + Status Pill */}
         <div className="flex items-center gap-4">
           <a 
             href="#home" 
             onClick={(e) => handleNavClick(e, "home")}
-            className="font-display font-extrabold text-xl tracking-tighter text-gradient-purple-cyan clickable"
+            className="font-display font-extrabold text-xl tracking-tighter text-gradient-lime-mint clickable"
           >
             ARJUN.
           </a>
 
-          {/* Availability & IST Status indicator */}
+          {/* Status pill: "Open to AI engineering roles" */}
           <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[11px] font-code text-textMuted">
-            <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
-            <span className="text-white/90">Available for Summer '26</span>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-white/90">Open to AI engineering roles</span>
             <span className="text-white/30">•</span>
             <span>HYD {currentTime}</span>
           </div>
         </div>
 
-        {/* Center: Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-1">
+        {/* Center: Simplified Navigation Links */}
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -157,13 +155,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                   onClick={(e) => handleNavClick(e, link.id)}
                   onMouseEnter={() => sound.playHover()}
                   className={`relative px-3.5 py-1.5 font-code text-xs tracking-wider uppercase transition-colors duration-300 ${
-                    isActive ? 'text-white font-semibold' : 'text-textMuted hover:text-white'
+                    isActive ? 'text-primary font-semibold' : 'text-textMuted hover:text-white'
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <span 
-                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-secondary"
+                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-primary"
                     />
                   )}
                 </a>
@@ -181,10 +179,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                 sound.playClick();
                 onOpenCommandPalette();
               }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:border-secondary/50 text-textMuted hover:text-white transition-all text-xs font-code clickable group"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:border-primary/50 text-textMuted hover:text-white transition-all text-xs font-code clickable group"
               title="Open Command Palette (⌘K)"
             >
-              <Search className="w-3.5 h-3.5 text-secondary group-hover:scale-110 transition-transform" />
+              <Search className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline">Search</span>
               <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.2 rounded text-[10px] bg-white/[0.06] text-white/70">
                 ⌘K
@@ -197,7 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             onClick={handleToggleSound}
             className={`p-2 rounded-full border transition-all clickable ${
               soundEnabled 
-                ? 'border-secondary/40 bg-secondary/10 text-secondary' 
+                ? 'border-primary/40 bg-primary/10 text-primary' 
                 : 'border-white/[0.08] bg-white/[0.02] text-textMuted/60 hover:text-white'
             }`}
             title={soundEnabled ? "Mute Sound FX" : "Enable Sound FX"}
@@ -215,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
-              className="px-5 py-2 font-code text-xs uppercase tracking-widest text-white border border-borderMuted rounded-full bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-secondary whitespace-nowrap clickable"
+              className="px-5 py-2 font-code text-xs uppercase tracking-widest text-white border border-borderMuted rounded-full bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary whitespace-nowrap clickable"
             >
               Contact
             </a>

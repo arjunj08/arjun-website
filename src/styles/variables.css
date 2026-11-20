@@ -1,10 +1,10 @@
 :root {
-  --background: #060810;
-  --card: #11131C;
-  --primary: #7C5CFF;
-  --secondary: #22D3EE;
-  --success: #22C55E;
-  --text-muted: #C7C9D3;
+  --background: #08090C;
+  --card: #0F1117;
+  --primary: #D4FF00;
+  --secondary: #00F5A0;
+  --success: #00F5A0;
+  --text-muted: #C5C8D4;
 }
 
 /* Premium radial backdrop and noise grain styles */
@@ -23,7 +23,7 @@
 
 .glass-card {
   backdrop-filter: blur(16px) saturate(120%);
-  background-color: rgba(17, 19, 28, 0.75);
+  background-color: rgba(15, 17, 23, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -32,8 +32,9 @@
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
 }
 
-.text-gradient-purple-cyan {
-  background: linear-gradient(135deg, #7C5CFF 0%, #22D3EE 100%);
+.text-gradient-purple-cyan,
+.text-gradient-lime-mint {
+  background: linear-gradient(135deg, #D4FF00 0%, #00F5A0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

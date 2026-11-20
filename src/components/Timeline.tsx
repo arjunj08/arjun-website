@@ -21,11 +21,11 @@ export const Timeline: React.FC = () => {
     <section 
       ref={containerRef}
       id="timeline" 
-      className="relative min-h-screen py-24 px-6 md:px-12 lg:px-24 bg-[#060810] border-b border-borderMuted flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen py-24 px-6 md:px-12 lg:px-24 bg-[#08090C] border-b border-borderMuted flex items-center justify-center overflow-hidden"
     >
       <div className="w-full max-w-5xl relative z-10">
         <SectionTitle 
-          number="03" 
+          number="04" 
           title="My Journey" 
           subtitle="Education, startups, and scholarships along the Hyderabad-ASU pipeline."
         />

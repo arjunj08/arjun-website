@@ -54,10 +54,10 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({ count, mouseRef }) => {
       </bufferGeometry>
       <pointsMaterial
         size={0.035}
-        color="#7C5CFF"
+        color="#D4FF00"
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.45}
+        opacity={0.4}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
       />
@@ -93,7 +93,7 @@ export const Particles: React.FC = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-50 bg-[#060810]">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-50 bg-[#08090C]">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
         gl={{ antialias: false, powerPreference: "high-performance" }}

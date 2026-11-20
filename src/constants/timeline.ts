@@ -12,7 +12,7 @@ export const timeline: TimelineItem[] = [
     role: "B.Tech Computer Science (Dual Degree)",
     company: "Arizona State University",
     description: [
-      "Transferred to Arizona State University under the prestigious 2+2 Dual Degree program.",
+      "Incoming to Arizona State University under the prestigious 2+2 Dual Degree program.",
       "Focusing on Artificial Intelligence, Advanced Algorithms, and Software Engineering methodologies.",
       "Expanding global network and participating in academic research on campus."
     ],
@@ -35,7 +35,7 @@ export const timeline: TimelineItem[] = [
     description: [
       "Shipped the SelfCall design system (90+ mobile UI screens) and laid down foundational frontend systems.",
       "Built and launched DayZero Foundry, a web platform translating raw product ideas into functional MVPs.",
-      "Integrated AI capabilities and LLMs into production workflow pipelines for clients."
+      "Integrated AI capabilities, agent workflows, and LLMs into production pipelines."
     ],
     type: "experience"
   },

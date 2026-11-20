@@ -9,7 +9,7 @@ export const LinkedInConnect: React.FC = () => {
   return (
     <section 
       id="linkedin-connect" 
-      className="relative py-20 px-6 md:px-12 lg:px-24 bg-[#060810] border-b border-borderMuted flex items-center justify-center overflow-hidden"
+      className="relative py-20 px-6 md:px-12 lg:px-24 bg-[#08090C] border-b border-borderMuted flex items-center justify-center overflow-hidden"
     >
       {/* Background neon ambient highlight */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
@@ -52,7 +52,7 @@ export const LinkedInConnect: React.FC = () => {
                 href={config.linkedinUrl} 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-2.5 font-code text-xs uppercase tracking-widest font-bold text-[#060810] bg-[#0077B5] border border-[#0077B5] px-8 py-4 rounded-full hover:bg-transparent hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(0,119,181,0.2)] hover:shadow-none clickable"
+                className="flex items-center gap-2.5 font-code text-xs uppercase tracking-widest font-bold text-[#08090C] bg-[#0077B5] border border-[#0077B5] px-8 py-4 rounded-full hover:bg-transparent hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(0,119,181,0.2)] hover:shadow-none clickable"
               >
                 <FiLinkedin className="w-4 h-4" /> View Profile <FiArrowUpRight className="w-4 h-4" />
               </a>

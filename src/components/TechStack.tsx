@@ -37,7 +37,7 @@ export const TechStack: React.FC = () => {
   return (
     <section 
       id="tech" 
-      className="relative py-24 bg-[#060810] border-b border-borderMuted flex flex-col justify-center items-center overflow-hidden"
+      className="relative py-24 bg-[#08090C] border-b border-borderMuted flex flex-col justify-center items-center overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
@@ -58,7 +58,7 @@ export const TechStack: React.FC = () => {
           speed={45} 
           pauseOnHover={true} 
           gradient={true} 
-          gradientColor="#060810" 
+          gradientColor="#08090C" 
           gradientWidth={100}
         >
           <div className="flex gap-6 pr-6">
@@ -87,7 +87,7 @@ export const TechStack: React.FC = () => {
           speed={45} 
           pauseOnHover={true} 
           gradient={true} 
-          gradientColor="#060810" 
+          gradientColor="#08090C" 
           gradientWidth={100}
         >
           <div className="flex gap-6 pr-6">

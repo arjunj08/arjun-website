@@ -11,7 +11,7 @@ export const Testimonials: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#060810] border-b border-borderMuted flex items-center justify-center overflow-hidden"
+      className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#08090C] border-b border-borderMuted flex items-center justify-center overflow-hidden"
     >
       {/* Background glow backdrop */}
       <div className="absolute left-10 top-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />

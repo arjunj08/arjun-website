@@ -26,7 +26,7 @@ export const achievements: Achievement[] = [
   },
   {
     id: "leetcode",
-    value: 500,
+    value: 348,
     suffix: "+",
     title: "LeetCode Solved",
     subtitle: "Competitive Programming",

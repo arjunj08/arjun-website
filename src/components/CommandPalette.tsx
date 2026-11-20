@@ -5,7 +5,6 @@ import {
   Copy, 
   Download, 
   ExternalLink, 
-  Phone, 
   Mail, 
   FolderGit2, 
   Compass, 
@@ -83,6 +82,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       action: () => scrollTo('home'),
     },
     {
+      id: 'nav-projects',
+      category: 'Navigation',
+      title: 'Featured Work',
+      subtitle: 'Autonomous agents & AI systems',
+      icon: <FolderGit2 className="w-4 h-4 text-primary" />,
+      action: () => scrollTo('projects'),
+    },
+    {
       id: 'nav-about',
       category: 'Navigation',
       title: 'A Little About Me',
@@ -105,14 +112,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       subtitle: 'Education, startups & achievements',
       icon: <Compass className="w-4 h-4 text-secondary" />,
       action: () => scrollTo('timeline'),
-    },
-    {
-      id: 'nav-projects',
-      category: 'Navigation',
-      title: 'Featured Work',
-      subtitle: 'Horizontal project slider',
-      icon: <FolderGit2 className="w-4 h-4 text-primary" />,
-      action: () => scrollTo('projects'),
     },
     {
       id: 'nav-stats',
@@ -158,12 +157,12 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       action: () => handleCopy(config.emails.personal, 'email'),
     },
     {
-      id: 'act-copy-phone',
+      id: 'act-copy-asu-email',
       category: 'Actions',
-      title: copiedKey === 'phone' ? 'Phone Copied!' : 'Copy Phone Number',
-      subtitle: config.phone,
-      icon: copiedKey === 'phone' ? <Check className="w-4 h-4 text-success" /> : <Phone className="w-4 h-4 text-secondary" />,
-      action: () => handleCopy(config.phone, 'phone'),
+      title: copiedKey === 'asu' ? 'ASU Email Copied!' : 'Copy ASU Student Email',
+      subtitle: config.emails.asu,
+      icon: copiedKey === 'asu' ? <Check className="w-4 h-4 text-success" /> : <Mail className="w-4 h-4 text-secondary" />,
+      action: () => handleCopy(config.emails.asu, 'asu'),
     },
     {
       id: 'act-download-resume',
@@ -255,7 +254,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     <div className="fixed inset-0 z-[100] flex items-start justify-center pt-20 md:pt-28 px-4">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-[#060810]/80 backdrop-blur-md transition-opacity duration-300"
+        className="fixed inset-0 bg-[#08090C]/80 backdrop-blur-md transition-opacity duration-300"
         onClick={onClose}
       />
 

@@ -52,11 +52,11 @@ export const Achievements: React.FC = () => {
   return (
     <section 
       id="achievements" 
-      className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#060810] border-b border-borderMuted flex items-center justify-center"
+      className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#08090C] border-b border-borderMuted flex items-center justify-center"
     >
       <div className="w-full max-w-7xl relative z-10">
         <SectionTitle 
-          number="07" 
+          number="06" 
           title="Milestones" 
           subtitle="Quantifying core engineering output, competitive performance, and design systems scale."
         />

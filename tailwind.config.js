@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#060810",
-        card: "#11131C",
-        primary: "#7C5CFF",
-        secondary: "#22D3EE",
-        success: "#22C55E",
-        textMuted: "#C7C9D3",
+        background: "#08090C",
+        card: "#0F1117",
+        primary: "#D4FF00",
+        secondary: "#00F5A0",
+        success: "#00F5A0",
+        textMuted: "#C5C8D4",
         borderMuted: "rgba(255,255,255,0.08)",
       },
       fontFamily: {

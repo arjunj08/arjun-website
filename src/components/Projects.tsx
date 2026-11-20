@@ -49,15 +49,15 @@ export const Projects: React.FC<ProjectsProps> = ({
   };
 
   return (
-    <div ref={containerRef} id="projects" className="relative bg-[#060810] border-b border-borderMuted">
+    <div ref={containerRef} id="projects" className="relative bg-[#08090C] border-b border-borderMuted">
       
       {/* Scroll Slider Content Wrapper */}
       <section className="relative w-full overflow-hidden flex flex-col justify-center min-h-screen py-24 px-6 md:px-12 lg:px-24">
         <div className="w-full max-w-7xl mx-auto mb-6">
           <SectionTitle 
-            number="04" 
+            number="01" 
             title="Featured Work" 
-            subtitle="Explore some of my core projects, open-source systems, and active research developments."
+            subtitle="Explore some of my core autonomous agent systems, AI frameworks, and active research developments."
           />
           {/* Horizontal scroll progress bar for desktop */}
           <div className="hidden lg:block w-full h-[2px] bg-white/5 relative mt-8 rounded-full overflow-hidden">
@@ -197,7 +197,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                                 target="_blank" 
                                 rel="noreferrer"
                                 onClick={() => sound.playClick()}
-                                className="flex items-center gap-1.5 font-code text-xs tracking-wider text-[#060810] bg-secondary border border-secondary px-3 py-1.5 rounded-full hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-300 font-bold clickable"
+                                className="flex items-center gap-1.5 font-code text-xs tracking-wider text-[#08090C] bg-secondary border border-secondary px-3 py-1.5 rounded-full hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-300 font-bold clickable"
                               >
                                 <FiExternalLink className="w-3.5 h-3.5" /> Demo
                               </a>

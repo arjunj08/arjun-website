@@ -36,7 +36,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 md:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-[#060810]/85 backdrop-blur-lg transition-opacity duration-300"
+        className="fixed inset-0 bg-[#08090C]/85 backdrop-blur-lg transition-opacity duration-300"
         onClick={() => {
           sound.playClick();
           onClose();
@@ -180,7 +180,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => sound.playClick()}
-                  className="flex items-center gap-2 font-code text-xs uppercase tracking-wider font-bold text-[#060810] bg-secondary border border-secondary px-5 py-2.5 rounded-full hover:shadow-[0_0_25px_rgba(34,211,238,0.35)] transition-all clickable"
+                  className="flex items-center gap-2 font-code text-xs uppercase tracking-wider font-bold text-[#08090C] bg-secondary border border-secondary px-5 py-2.5 rounded-full hover:shadow-[0_0_25px_rgba(34,211,238,0.35)] transition-all clickable"
                 >
                   <ExternalLink className="w-4 h-4" /> Live Demo
                 </a>
