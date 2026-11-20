@@ -1,14 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SectionTitle } from './SectionTitle';
-import { projects } from '../constants/projects';
+import { projects, Project } from '../constants/projects';
 import { animateProjects } from '../animations/projects';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { Sparkles } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
+import { ProjectModal } from './ProjectModal';
+import { sound } from '../utils/sound';
 
-export const Projects: React.FC = () => {
+interface ProjectsProps {
+  externalSelectedProject?: Project | null;
+  onClearExternalProject?: () => void;
+}
+
+export const Projects: React.FC<ProjectsProps> = ({ 
+  externalSelectedProject, 
+  onClearExternalProject 
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<HTMLDivElement[]>([]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (externalSelectedProject) {
+      setSelectedProject(externalSelectedProject);
+    }
+  }, [externalSelectedProject]);
 
   useEffect(() => {
     const panels = cardRefs.current.filter((el) => el !== null);
@@ -17,6 +35,18 @@ export const Projects: React.FC = () => {
       if (cleanup) cleanup();
     };
   }, []);
+
+  const handleOpenModal = (project: Project) => {
+    sound.playClick();
+    setSelectedProject(project);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProject(null);
+    if (onClearExternalProject) {
+      onClearExternalProject();
+    }
+  };
 
   return (
     <div ref={containerRef} id="projects" className="relative bg-[#060810] border-b border-borderMuted">
@@ -54,10 +84,16 @@ export const Projects: React.FC = () => {
                 className="w-full lg:w-[480px] shrink-0"
               >
                 {/* Individual Card */}
-                <div className="group relative rounded-2xl border border-borderMuted bg-card overflow-hidden flex flex-col justify-between h-[520px] glass-card transition-all duration-300">
+                <div 
+                  className="group relative rounded-2xl border border-borderMuted bg-card overflow-hidden flex flex-col justify-between h-[540px] glass-card transition-all duration-300 hover:border-primary/40 hover:shadow-[0_10px_40px_-10px_rgba(124,92,255,0.2)]"
+                  onMouseEnter={() => sound.playHover()}
+                >
                   
                   {/* Card Media Area with zoom on card hover */}
-                  <div className="relative h-[220px] w-full overflow-hidden border-b border-borderMuted bg-background">
+                  <div 
+                    className="relative h-[220px] w-full overflow-hidden border-b border-borderMuted bg-background cursor-pointer"
+                    onClick={() => handleOpenModal(project)}
+                  >
                     {project.media.type === 'video' ? (
                       <video
                         autoPlay
@@ -68,7 +104,6 @@ export const Projects: React.FC = () => {
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       >
                         <source src={project.media.src} type="video/mp4" />
-                        {/* Fallback image */}
                         <img 
                           src={project.image} 
                           alt={project.title} 
@@ -87,9 +122,16 @@ export const Projects: React.FC = () => {
                         }}
                       />
                     )}
+
+                    {/* Hover Overlay Prompt */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                      <span className="flex items-center gap-1.5 font-code text-xs font-bold text-white uppercase tracking-wider px-4 py-2 rounded-full bg-white/20 border border-white/30 backdrop-blur-md">
+                        <Sparkles className="w-3.5 h-3.5 text-secondary" /> Architecture Deep Dive
+                      </span>
+                    </div>
                     
                     {/* Status Badge overlay */}
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-4 left-4 z-10">
                       <span className={`font-code text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full backdrop-blur-md border ${
                         project.status === 'Live' 
                           ? 'bg-success/15 border-success/35 text-success' 
@@ -108,7 +150,10 @@ export const Projects: React.FC = () => {
                       <span className="font-code text-xs text-secondary mb-1 block font-semibold tracking-wider">
                         {project.subtitle}
                       </span>
-                      <h3 className="font-display font-extrabold text-xl text-white mb-2 tracking-tight">
+                      <h3 
+                        onClick={() => handleOpenModal(project)}
+                        className="font-display font-extrabold text-xl text-white mb-2 tracking-tight hover:text-secondary transition-colors cursor-pointer"
+                      >
                         {project.title}
                       </h3>
                       <p className="font-body text-xs text-textMuted font-light leading-relaxed mb-4 line-clamp-3">
@@ -118,7 +163,7 @@ export const Projects: React.FC = () => {
 
                     {/* Tech Chips */}
                     <div>
-                      <div className="flex flex-wrap gap-1.5 mb-6">
+                      <div className="flex flex-wrap gap-1.5 mb-5">
                         {project.tech.map((t) => (
                           <span 
                             key={t}
@@ -129,32 +174,44 @@ export const Projects: React.FC = () => {
                         ))}
                       </div>
 
-                      {/* Links Buttons */}
-                      <div className="flex items-center gap-4 mt-auto">
-                        {project.links.github && (
-                          <MagneticButton strength={0.2}>
-                            <a 
-                              href={project.links.github} 
-                              target="_blank" 
-                              rel="noreferrer"
-                              className="flex items-center gap-2 font-code text-xs tracking-wider text-white border border-borderMuted bg-white/5 px-4 py-2 rounded-full hover:border-primary transition-all duration-300 clickable"
-                            >
-                              <FiGithub className="w-4 h-4" /> Github
-                            </a>
-                          </MagneticButton>
-                        )}
-                        {project.links.live && (
-                          <MagneticButton strength={0.2}>
-                            <a 
-                              href={project.links.live} 
-                              target="_blank" 
-                              rel="noreferrer"
-                              className="flex items-center gap-2 font-code text-xs tracking-wider text-[#060810] bg-secondary border border-secondary px-4 py-2 rounded-full hover:shadow-[0_0_20px_rgba(34,211,238,0.25)] transition-all duration-300 font-bold clickable"
-                            >
-                              <FiExternalLink className="w-4 h-4" /> Live Demo
-                            </a>
-                          </MagneticButton>
-                        )}
+                      {/* Links Buttons + Deep Dive Trigger */}
+                      <div className="flex items-center justify-between gap-3 mt-auto pt-3 border-t border-white/[0.04]">
+                        <div className="flex items-center gap-2">
+                          {project.links.github && (
+                            <MagneticButton strength={0.2}>
+                              <a 
+                                href={project.links.github} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                onClick={() => sound.playClick()}
+                                className="flex items-center gap-1.5 font-code text-xs tracking-wider text-white border border-borderMuted bg-white/5 px-3 py-1.5 rounded-full hover:border-primary transition-all duration-300 clickable"
+                              >
+                                <FiGithub className="w-3.5 h-3.5" /> Code
+                              </a>
+                            </MagneticButton>
+                          )}
+                          {project.links.live && (
+                            <MagneticButton strength={0.2}>
+                              <a 
+                                href={project.links.live} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                onClick={() => sound.playClick()}
+                                className="flex items-center gap-1.5 font-code text-xs tracking-wider text-[#060810] bg-secondary border border-secondary px-3 py-1.5 rounded-full hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-300 font-bold clickable"
+                              >
+                                <FiExternalLink className="w-3.5 h-3.5" /> Demo
+                              </a>
+                            </MagneticButton>
+                          )}
+                        </div>
+
+                        {/* Deep Dive Action */}
+                        <button
+                          onClick={() => handleOpenModal(project)}
+                          className="flex items-center gap-1 text-[11px] font-code text-textMuted hover:text-white uppercase tracking-wider transition-colors"
+                        >
+                          Deep Dive →
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -166,6 +223,12 @@ export const Projects: React.FC = () => {
         </div>
 
       </section>
+
+      {/* Project Architecture Deep Dive Modal */}
+      <ProjectModal 
+        project={selectedProject} 
+        onClose={handleCloseModal} 
+      />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { SectionTitle } from './SectionTitle';
 import { GlowingCard } from './GlowingCard';
+import { GitHubHeatmap } from './GitHubHeatmap';
+import { LeetCodeCard } from './LeetCodeCard';
 import { config } from '../constants/config';
 import { GitBranch, Star, Users, Code } from 'lucide-react';
 
@@ -75,8 +77,8 @@ export const GitHubStats: React.FC = () => {
       <div className="w-full max-w-7xl relative z-10">
         <SectionTitle 
           number="06" 
-          title="Open Source Stats" 
-          subtitle="Dynamic GitHub repositories, stars tracking, and contribution analytics."
+          title="Open Source & Code Matrix" 
+          subtitle="Dynamic GitHub repositories, real contribution matrix, and competitive programming analytics."
         />
 
         {/* Numeric stats cards */}
@@ -132,27 +134,12 @@ export const GitHubStats: React.FC = () => {
 
         </div>
 
-        {/* Contribution Graph wrapper with theme styling filters */}
-        <div className="mt-10 rounded-2xl border border-borderMuted p-6 md:p-8 bg-card/40 backdrop-blur-md overflow-hidden flex flex-col justify-center items-center">
-          <span className="font-code text-xs text-textMuted tracking-wider mb-6 block self-start">
-            // {username} / contribution_map.log
-          </span>
-          
-          <div className="w-full overflow-x-auto flex justify-center py-2">
-            <img 
-              src={`https://ghchart.rshah.org/7c5cff/${username}`} 
-              alt="Arjun Jammalmadaka's Github Contributions Chart"
-              className="min-w-[720px] max-w-full h-auto filter brightness-90 contrast-125 select-none"
-              style={{
-                mixBlendMode: 'lighten',
-                filter: 'hue-rotate(260deg) saturate(1.4) brightness(0.95)'
-              }}
-              onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
-          </div>
-        </div>
+        {/* Native GitHub Contribution Heatmap Matrix */}
+        <GitHubHeatmap />
+
+        {/* LeetCode Competitive Hub */}
+        <LeetCodeCard />
+
       </div>
     </section>
   );

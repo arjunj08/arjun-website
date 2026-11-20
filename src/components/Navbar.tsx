@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { MagneticButton } from './MagneticButton';
+import { Search, Volume2, VolumeX } from 'lucide-react';
+import { sound } from '../utils/sound';
 
 interface NavLink {
   label: string;
   id: string;
+}
+
+interface NavbarProps {
+  onOpenCommandPalette?: () => void;
 }
 
 const navLinks: NavLink[] = [
@@ -17,29 +23,44 @@ const navLinks: NavLink[] = [
   { label: "Contact", id: "contact" }
 ];
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   const [activeSection, setActiveSection] = useState("home");
   const [visible, setVisible] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [currentTime, setCurrentTime] = useState("");
+  const [soundEnabled, setSoundEnabled] = useState(sound.isEnabled());
 
   useEffect(() => {
-    // 1. Scroll Progress & Hide/Reveal on scroll direction
+    // 1. Clock in Indian Standard Time (IST)
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString("en-US", {
+          timeZone: "Asia/Kolkata",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        })
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 30000);
+
+    // 2. Scroll Progress & Direction
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       
-      // Compute scroll percentage
       if (totalHeight > 0) {
         setScrollProgress((currentScrollY / totalHeight) * 100);
       }
 
-      // Hide on scroll down, show on scroll up
       if (currentScrollY > 150) {
         if (currentScrollY > lastScrollY) {
-          setVisible(false); // scrolling down
+          setVisible(false);
         } else {
-          setVisible(true); // scrolling up
+          setVisible(true);
         }
       } else {
         setVisible(true);
@@ -50,10 +71,10 @@ export const Navbar: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // 2. Active Section Tracking via Intersection Observer
+    // 3. Active Section Tracking
     const observerOptions = {
       root: null,
-      rootMargin: "-40% 0px -40% 0px", // triggers when section covers center of screen
+      rootMargin: "-40% 0px -40% 0px",
       threshold: 0
     };
 
@@ -72,18 +93,24 @@ export const Navbar: React.FC = () => {
     });
 
     return () => {
+      clearInterval(interval);
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, [lastScrollY]);
 
-  // Smooth scroll to section
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    sound.playClick();
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleToggleSound = () => {
+    const next = sound.toggle();
+    setSoundEnabled(next);
   };
 
   return (
@@ -99,35 +126,44 @@ export const Navbar: React.FC = () => {
       />
 
       {/* Main Navbar Panel */}
-      <div className="w-full flex justify-between items-center px-6 md:px-12 py-5 bg-background/30 backdrop-blur-md border-b border-white/[0.05]">
-        {/* Logo Monogram */}
-        <a 
-          href="#home" 
-          onClick={(e) => handleNavClick(e, "home")}
-          className="font-display font-extrabold text-xl tracking-tighter text-gradient-purple-cyan clickable"
-        >
-          ARJUN.
-        </a>
+      <div className="w-full flex justify-between items-center px-4 sm:px-8 md:px-12 py-4 bg-[#060810]/75 backdrop-blur-md border-b border-white/[0.06]">
+        {/* Left: Brand Monogram + Live Status */}
+        <div className="flex items-center gap-4">
+          <a 
+            href="#home" 
+            onClick={(e) => handleNavClick(e, "home")}
+            className="font-display font-extrabold text-xl tracking-tighter text-gradient-purple-cyan clickable"
+          >
+            ARJUN.
+          </a>
 
-        {/* Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5">
+          {/* Availability & IST Status indicator */}
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[11px] font-code text-textMuted">
+            <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+            <span className="text-white/90">Available for Summer '26</span>
+            <span className="text-white/30">•</span>
+            <span>HYD {currentTime}</span>
+          </div>
+        </div>
+
+        {/* Center: Navigation Links */}
+        <nav className="hidden xl:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
-              <MagneticButton key={link.id} strength={0.2}>
+              <MagneticButton key={link.id} strength={0.15}>
                 <a
                   href={`#${link.id}`}
                   onClick={(e) => handleNavClick(e, link.id)}
-                  className={`relative px-4 py-2 font-code text-xs tracking-wider uppercase transition-colors duration-300 ${
-                    isActive ? 'text-white' : 'text-textMuted hover:text-white'
+                  onMouseEnter={() => sound.playHover()}
+                  className={`relative px-3.5 py-1.5 font-code text-xs tracking-wider uppercase transition-colors duration-300 ${
+                    isActive ? 'text-white font-semibold' : 'text-textMuted hover:text-white'
                   }`}
                 >
                   {link.label}
-                  {/* Underline Indicator */}
                   {isActive && (
                     <span 
-                      className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-secondary"
-                      style={{ content: '""' }}
+                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-secondary"
                     />
                   )}
                 </a>
@@ -136,13 +172,50 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Action Button (magnetic CTA) */}
-        <div className="flex items-center">
-          <MagneticButton strength={0.25}>
+        {/* Right: Quick Tools (Spotlight + Sound + CTA) */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Spotlight Search Trigger */}
+          {onOpenCommandPalette && (
+            <button
+              onClick={() => {
+                sound.playClick();
+                onOpenCommandPalette();
+              }}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] hover:border-secondary/50 text-textMuted hover:text-white transition-all text-xs font-code clickable group"
+              title="Open Command Palette (⌘K)"
+            >
+              <Search className="w-3.5 h-3.5 text-secondary group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">Search</span>
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.2 rounded text-[10px] bg-white/[0.06] text-white/70">
+                ⌘K
+              </kbd>
+            </button>
+          )}
+
+          {/* Sound FX Toggle */}
+          <button
+            onClick={handleToggleSound}
+            className={`p-2 rounded-full border transition-all clickable ${
+              soundEnabled 
+                ? 'border-secondary/40 bg-secondary/10 text-secondary' 
+                : 'border-white/[0.08] bg-white/[0.02] text-textMuted/60 hover:text-white'
+            }`}
+            title={soundEnabled ? "Mute Sound FX" : "Enable Sound FX"}
+            aria-label="Toggle Sound Effects"
+          >
+            {soundEnabled ? (
+              <Volume2 className="w-3.5 h-3.5" />
+            ) : (
+              <VolumeX className="w-3.5 h-3.5" />
+            )}
+          </button>
+
+          {/* Contact Magnetic CTA */}
+          <MagneticButton strength={0.2}>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
-              className="px-6 py-2.5 font-code text-xs uppercase tracking-widest text-white border border-borderMuted rounded-full bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-secondary whitespace-nowrap clickable"
+              className="px-5 py-2 font-code text-xs uppercase tracking-widest text-white border border-borderMuted rounded-full bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-secondary whitespace-nowrap clickable"
             >
               Contact
             </a>

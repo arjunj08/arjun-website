@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Loader } from './components/Loader';
 import { Navbar } from './components/Navbar';
@@ -15,14 +15,38 @@ import { Testimonials } from './components/Testimonials';
 import { LinkedInConnect } from './components/LinkedInConnect';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { CommandPalette } from './components/CommandPalette';
 import { useLenis } from './hooks/useLenis';
 import { config } from './constants/config';
+import { projects, Project } from './constants/projects';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   // Initialize smooth scroll
   useLenis();
+
+  // Global ⌘K / Ctrl+K keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setPaletteOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleOpenProjectFromPalette = (projectId: string) => {
+    const found = projects.find((p) => p.id === projectId);
+    if (found) {
+      setSelectedProject(found);
+    }
+  };
 
   return (
     <>
@@ -62,8 +86,17 @@ function App() {
 
       {loading && <Loader onComplete={() => setLoading(false)} />}
 
+      {/* Command Palette Spotlight Modal */}
+      <CommandPalette 
+        isOpen={paletteOpen} 
+        onClose={() => setPaletteOpen(false)}
+        onOpenProjectModal={handleOpenProjectFromPalette}
+      />
+
       {/* Navbar overlay */}
-      {!loading && <Navbar />}
+      {!loading && (
+        <Navbar onOpenCommandPalette={() => setPaletteOpen(true)} />
+      )}
 
       {/* Main Section Elements */}
       <main className={`relative w-full min-h-screen ${loading ? 'opacity-0 pointer-events-none' : 'opacity-100 transition-opacity duration-1000'}`}>
@@ -71,7 +104,10 @@ function App() {
         <About />
         <WhatIDo />
         <Timeline />
-        <Projects />
+        <Projects 
+          externalSelectedProject={selectedProject}
+          onClearExternalProject={() => setSelectedProject(null)}
+        />
         <TechStack />
         <GitHubStats />
         <Achievements />
