@@ -7,12 +7,12 @@ interface GlowingCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * A premium card that renders a mouse-following radial glow background.
+ * A premium card that renders a mouse-following radial glow background in signature acid-lime.
  */
 export const GlowingCard: React.FC<GlowingCardProps> = ({
   children,
   className = "",
-  glowColor = "rgba(124, 92, 255, 0.15)",
+  glowColor = "rgba(212, 255, 0, 0.15)",
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ export const GlowingCard: React.FC<GlowingCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`relative rounded-2xl border border-borderMuted bg-card overflow-hidden glass-card ${className}`}
+      className={`relative rounded-2xl border border-white/[0.08] bg-card overflow-hidden glass-card hover:border-primary/30 transition-all duration-300 ${className}`}
       {...props}
     >
       {/* Radial glow background layer positioned absolutely behind content */}

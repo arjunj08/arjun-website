@@ -51,8 +51,8 @@ export function initCursor(
     gsap.to(dot, { scale: 0, duration: 0.2 });
     gsap.to(ring, { 
       scale: 2.2, 
-      backgroundColor: 'rgba(255, 255, 255, 0.08)',
-      borderColor: '#22D3EE',
+      backgroundColor: 'rgba(212, 255, 0, 0.08)',
+      borderColor: '#00F5A0',
       duration: 0.3 
     });
   };
@@ -62,7 +62,7 @@ export function initCursor(
     gsap.to(ring, { 
       scale: 1, 
       backgroundColor: 'transparent',
-      borderColor: 'rgba(124, 92, 255, 0.4)',
+      borderColor: 'rgba(212, 255, 0, 0.45)',
       duration: 0.3 
     });
   };

@@ -260,7 +260,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
       {/* Palette Container */}
       <div 
-        className="relative w-full max-w-2xl rounded-2xl border border-white/10 bg-[#0e111a]/95 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_50px_rgba(124,92,255,0.15)] overflow-hidden flex flex-col z-10 transition-all duration-300 animate-in fade-in zoom-in-95"
+        className="relative w-full max-w-2xl rounded-2xl border border-white/10 bg-[#0e111a]/95 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_50px_rgba(212,255,0,0.15)] overflow-hidden flex flex-col z-10 transition-all duration-300 animate-in fade-in zoom-in-95"
         onKeyDown={handleKeyDown}
       >
         {/* Search Input Bar */}

@@ -60,12 +60,17 @@ export const WhatIDo: React.FC = () => {
           {services.map((service, index) => (
             <GlowingCard 
               key={service.title} 
-              className="p-8 flex flex-col justify-between min-h-[380px]"
-              glowColor={index % 2 === 0 ? "rgba(124, 92, 255, 0.15)" : "rgba(34, 211, 238, 0.15)"}
+              className="p-8 flex flex-col justify-between min-h-[380px] hover:border-primary/40 transition-all duration-300"
+              glowColor={index % 2 === 0 ? "rgba(212, 255, 0, 0.18)" : "rgba(0, 245, 160, 0.18)"}
             >
               <div>
-                <div className="mb-6 p-3 bg-white/5 rounded-xl w-fit border border-white/10">
-                  {service.icon}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="p-3 bg-white/[0.04] rounded-xl w-fit border border-white/[0.08]">
+                    {service.icon}
+                  </div>
+                  <span className="font-code text-xs text-textMuted/60">
+                    0{index + 1} //
+                  </span>
                 </div>
                 <h3 className="font-display font-bold text-xl text-white mb-3">
                   {service.title}
@@ -80,7 +85,7 @@ export const WhatIDo: React.FC = () => {
                 {service.tech.map((t) => (
                   <span 
                     key={t}
-                    className="font-code text-[10px] tracking-wider text-secondary px-2.5 py-1 bg-white/[0.03] border border-white/[0.05] rounded-md"
+                    className="font-code text-[10px] tracking-wider text-secondary px-2.5 py-1 bg-white/[0.03] border border-white/[0.06] rounded-md hover:border-secondary/40 transition-colors"
                   >
                     {t}
                   </span>

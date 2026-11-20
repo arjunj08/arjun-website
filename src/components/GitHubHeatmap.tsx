@@ -123,7 +123,7 @@ export const GitHubHeatmap: React.FC = () => {
             }}
             className={`px-4 py-1.5 rounded-lg font-code text-xs font-bold transition-all ${
               activeYear === 2026
-                ? 'bg-primary text-white shadow-[0_0_15px_rgba(124,92,255,0.4)]'
+                ? 'bg-primary text-[#08090C] shadow-[0_0_15px_rgba(212,255,0,0.4)] font-bold'
                 : 'text-textMuted hover:text-white'
             }`}
           >
@@ -136,7 +136,7 @@ export const GitHubHeatmap: React.FC = () => {
             }}
             className={`px-4 py-1.5 rounded-lg font-code text-xs font-bold transition-all ${
               activeYear === 2025
-                ? 'bg-primary text-white shadow-[0_0_15px_rgba(124,92,255,0.4)]'
+                ? 'bg-primary text-[#08090C] shadow-[0_0_15px_rgba(212,255,0,0.4)] font-bold'
                 : 'text-textMuted hover:text-white'
             }`}
           >

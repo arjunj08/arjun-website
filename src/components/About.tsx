@@ -90,7 +90,7 @@ export const About: React.FC = () => {
               ref={imageWrapperRef}
               className="relative p-[1.5px] rounded-full overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, rgba(124,92,255,0.4) 0%, rgba(34,211,238,0.4) 100%)'
+                background: 'linear-gradient(135deg, rgba(212,255,0,0.6) 0%, rgba(0,245,160,0.6) 100%)'
               }}
             >
               {/* Inner Casual Selfie image */}
@@ -105,9 +105,22 @@ export const About: React.FC = () => {
             </div>
             
             {/* Caption */}
-            <span className="font-code text-xs text-secondary mt-4 tracking-widest uppercase">
+            <span className="font-code text-xs text-primary mt-4 tracking-widest uppercase">
               ~ off-duty mode
             </span>
+
+            {/* Quick Context Chips */}
+            <div className="flex flex-wrap gap-2 justify-center mt-4">
+              <span className="font-code text-[10px] px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-textMuted">
+                📍 Hyderabad, IN
+              </span>
+              <span className="font-code text-[10px] px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-textMuted">
+                ⚡ Multi-Agent RL
+              </span>
+              <span className="font-code text-[10px] px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-textMuted">
+                🏎️ Speed & Craft
+              </span>
+            </div>
           </div>
 
         </div>

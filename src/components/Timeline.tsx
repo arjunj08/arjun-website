@@ -49,8 +49,8 @@ export const Timeline: React.FC = () => {
             />
             <defs>
               <linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#7C5CFF" />
-                <stop offset="100%" stopColor="#22D3EE" />
+                <stop offset="0%" stopColor="#D4FF00" />
+                <stop offset="100%" stopColor="#00F5A0" />
               </linearGradient>
             </defs>
           </svg>
@@ -66,9 +66,9 @@ export const Timeline: React.FC = () => {
                     isLeft ? 'md:flex-row-reverse' : ''
                   }`}
                 >
-                  {/* Central Node Indicator */}
-                  <div className="absolute left-[30px] md:left-1/2 w-6 h-6 rounded-full bg-card border-[2px] border-primary -translate-x-1/2 flex items-center justify-center z-10">
-                    <div className="w-2 h-2 rounded-full bg-secondary" />
+                  {/* Central Node Indicator with glowing neon halo */}
+                  <div className="absolute left-[30px] md:left-1/2 w-6 h-6 rounded-full bg-[#08090C] border-[2px] border-primary -translate-x-1/2 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(212,255,0,0.4)]">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
                   </div>
 
                   {/* Empty space filler for layout */}

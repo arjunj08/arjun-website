@@ -3,7 +3,7 @@ import { SectionTitle } from './SectionTitle';
 import { projects, Project } from '../constants/projects';
 import { animateProjects } from '../animations/projects';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Terminal } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import { ProjectModal } from './ProjectModal';
 import { sound } from '../utils/sound';
@@ -85,7 +85,7 @@ export const Projects: React.FC<ProjectsProps> = ({
               >
                 {/* Individual Card */}
                 <div 
-                  className="group relative rounded-2xl border border-borderMuted bg-card overflow-hidden flex flex-col justify-between h-[540px] glass-card transition-all duration-300 hover:border-primary/40 hover:shadow-[0_10px_40px_-10px_rgba(124,92,255,0.2)]"
+                  className="group relative rounded-2xl border border-white/[0.08] bg-card overflow-hidden flex flex-col justify-between h-[540px] glass-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_12px_45px_-10px_rgba(212,255,0,0.2)]"
                   onMouseEnter={() => sound.playHover()}
                 >
                   
@@ -123,21 +123,28 @@ export const Projects: React.FC<ProjectsProps> = ({
                       />
                     )}
 
+                    {/* Window Controls Dot Strip */}
+                    <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
+                      <div className="w-2 h-2 rounded-full bg-[#FF5F56]/90" />
+                      <div className="w-2 h-2 rounded-full bg-[#FFBD2E]/90" />
+                      <div className="w-2 h-2 rounded-full bg-[#27C93F]/90" />
+                    </div>
+
                     {/* Hover Overlay Prompt */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                      <span className="flex items-center gap-1.5 font-code text-xs font-bold text-white uppercase tracking-wider px-4 py-2 rounded-full bg-white/20 border border-white/30 backdrop-blur-md">
-                        <Sparkles className="w-3.5 h-3.5 text-secondary" /> Architecture Deep Dive
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                      <span className="flex items-center gap-2 font-code text-xs font-bold text-white uppercase tracking-wider px-5 py-2.5 rounded-full bg-black/60 border border-primary/50 shadow-[0_0_20px_rgba(212,255,0,0.3)] backdrop-blur-md">
+                        <Sparkles className="w-3.5 h-3.5 text-primary" /> Architecture Deep Dive
                       </span>
                     </div>
                     
                     {/* Status Badge overlay */}
-                    <div className="absolute top-4 left-4 z-10">
+                    <div className="absolute top-3 left-3 z-10">
                       <span className={`font-code text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full backdrop-blur-md border ${
                         project.status === 'Live' 
-                          ? 'bg-success/15 border-success/35 text-success' 
+                          ? 'bg-success/20 border-success/40 text-success' 
                           : project.status === 'Research'
-                          ? 'bg-secondary/15 border-secondary/35 text-secondary'
-                          : 'bg-primary/15 border-primary/35 text-primary'
+                          ? 'bg-secondary/20 border-secondary/40 text-secondary'
+                          : 'bg-primary/20 border-primary/40 text-primary'
                       }`}>
                         {project.status}
                       </span>
@@ -147,12 +154,17 @@ export const Projects: React.FC<ProjectsProps> = ({
                   {/* Card Content Area */}
                   <div className="p-6 flex flex-col justify-between flex-1">
                     <div>
-                      <span className="font-code text-xs text-secondary mb-1 block font-semibold tracking-wider">
-                        {project.subtitle}
-                      </span>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="font-code text-xs text-primary font-bold tracking-wider">
+                          // {project.subtitle}
+                        </span>
+                        <span className="font-code text-[10px] text-textMuted px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06]">
+                          0{index + 1}
+                        </span>
+                      </div>
                       <h3 
                         onClick={() => handleOpenModal(project)}
-                        className="font-display font-extrabold text-xl text-white mb-2 tracking-tight hover:text-secondary transition-colors cursor-pointer"
+                        className="font-display font-extrabold text-xl text-white mb-2 tracking-tight hover:text-primary transition-colors cursor-pointer"
                       >
                         {project.title}
                       </h3>
@@ -167,7 +179,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                         {project.tech.map((t) => (
                           <span 
                             key={t}
-                            className="font-code text-[9px] tracking-wider text-[#B6B8C2] px-2 py-0.5 bg-white/[0.03] border border-white/[0.05] rounded"
+                            className="font-code text-[9px] tracking-wider text-[#C5C8D4] px-2.5 py-1 bg-white/[0.02] border border-white/[0.06] rounded-md hover:border-primary/40 transition-colors"
                           >
                             {t}
                           </span>
@@ -197,7 +209,7 @@ export const Projects: React.FC<ProjectsProps> = ({
                                 target="_blank" 
                                 rel="noreferrer"
                                 onClick={() => sound.playClick()}
-                                className="flex items-center gap-1.5 font-code text-xs tracking-wider text-[#08090C] bg-secondary border border-secondary px-3 py-1.5 rounded-full hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-300 font-bold clickable"
+                                className="flex items-center gap-1.5 font-code text-xs tracking-wider text-[#08090C] bg-primary border border-primary px-3 py-1.5 rounded-full hover:shadow-[0_0_15px_rgba(212,255,0,0.3)] transition-all duration-300 font-bold clickable"
                               >
                                 <FiExternalLink className="w-3.5 h-3.5" /> Demo
                               </a>
@@ -208,9 +220,9 @@ export const Projects: React.FC<ProjectsProps> = ({
                         {/* Deep Dive Action */}
                         <button
                           onClick={() => handleOpenModal(project)}
-                          className="flex items-center gap-1 text-[11px] font-code text-textMuted hover:text-white uppercase tracking-wider transition-colors"
+                          className="flex items-center gap-1.5 text-[11px] font-code text-secondary hover:text-primary uppercase tracking-wider font-semibold transition-colors"
                         >
-                          Deep Dive →
+                          <Terminal className="w-3 h-3" /> Deep Dive →
                         </button>
                       </div>
                     </div>

@@ -101,7 +101,7 @@ export const Landing: React.FC = () => {
       id="home"
       className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden pt-28 pb-16 bg-[#08090C]"
     >
-      {/* 3D Particle Starfield */}
+      {/* 3D Dynamic Cybernetic Wave Grid */}
       <Particles />
 
       {/* Hero content grid */}
@@ -136,7 +136,7 @@ export const Landing: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA Buttons: Main button is now "See My Work" linking to projects */}
+          {/* CTA Buttons: Main button is "See My Work" linking to projects */}
           <div className="flex flex-wrap gap-4 items-center mb-8">
             <MagneticButton strength={0.2}>
               <a 
@@ -161,9 +161,25 @@ export const Landing: React.FC = () => {
               </a>
             </MagneticButton>
           </div>
+
+          {/* Quick Metrics Strip */}
+          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.08] w-full max-w-lg">
+            <div>
+              <span className="font-display font-bold text-xl md:text-2xl text-white block">348+</span>
+              <span className="font-code text-[10px] md:text-xs text-textMuted uppercase tracking-wider">LeetCode Solved</span>
+            </div>
+            <div>
+              <span className="font-display font-bold text-xl md:text-2xl text-primary block">Top 12%</span>
+              <span className="font-code text-[10px] md:text-xs text-textMuted uppercase tracking-wider">Global Contest</span>
+            </div>
+            <div>
+              <span className="font-display font-bold text-xl md:text-2xl text-secondary block">109+</span>
+              <span className="font-code text-[10px] md:text-xs text-textMuted uppercase tracking-wider">GitHub Matrix</span>
+            </div>
+          </div>
         </div>
 
-        {/* Center-Right Section: 3D Tilting Conic-Ring Avatar */}
+        {/* Center-Right Section: 3D Tilting Conic-Ring Avatar with Holographic Chips */}
         <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
           
           <div 
@@ -171,7 +187,19 @@ export const Landing: React.FC = () => {
             className="relative flex items-center justify-center"
           >
             {/* Ambient Background Glow behind the head */}
-            <div className="absolute w-[350px] h-[350px] md:w-[480px] md:h-[480px] bg-primary/10 rounded-full blur-[80px] -z-10 pointer-events-none" />
+            <div className="absolute w-[350px] h-[350px] md:w-[480px] md:h-[480px] bg-primary/10 rounded-full blur-[90px] -z-10 pointer-events-none" />
+
+            {/* Top-Right Holographic Chip */}
+            <div className="hidden sm:flex absolute -top-3 -right-2 md:-right-6 bg-[#0F1117]/95 border border-primary/40 backdrop-blur-md px-3.5 py-1.5 rounded-full items-center gap-2 shadow-[0_0_20px_rgba(212,255,0,0.15)] z-20">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="font-code text-[11px] text-white font-medium">VEIXON AI OS • Agents</span>
+            </div>
+
+            {/* Bottom-Left Holographic Chip */}
+            <div className="hidden sm:flex absolute -bottom-3 -left-4 md:-left-8 bg-[#0F1117]/95 border border-secondary/40 backdrop-blur-md px-3.5 py-1.5 rounded-full items-center gap-2 shadow-[0_0_20px_rgba(0,245,160,0.15)] z-20">
+              <span className="text-secondary text-xs">🎓</span>
+              <span className="font-code text-[11px] text-white font-medium">2+2 CS • Anurag → ASU</span>
+            </div>
 
             {/* Conic Ring Wrapper */}
             <div 
@@ -206,7 +234,7 @@ export const Landing: React.FC = () => {
             </div>
 
             {/* Floating Role Monogram Badge */}
-            <div className="absolute -bottom-4 right-4 md:right-8 bg-[#0F1117]/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-2xl">
+            <div className="absolute -bottom-4 right-4 md:right-8 bg-[#0F1117]/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-2xl z-20">
               <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
               <span className="font-code text-xs text-white uppercase tracking-wider font-semibold">
                 Dev @ Veixon
